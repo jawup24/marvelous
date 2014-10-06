@@ -1,1 +1,1 @@
-web: gunicorn marvelous:app
+web: gunicorn marvelous:app
