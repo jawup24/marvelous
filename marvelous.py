@@ -10,6 +10,7 @@ from flask.json import jsonify
 app = Flask(__name__)
 
 app.secret_key = os.environ.get('SECRET_KEY', 'secretkey')
+
 # Getting indentification variables to the JawUp API
 client_id = os.environ.get('CLIENT_ID')
 client_secret = os.environ.get('CLIENT_SECRET')
