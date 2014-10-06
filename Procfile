@@ -1,1 +1,1 @@
-web: gunicorn run:marvelous
+web: gunicorn marvelous:app
