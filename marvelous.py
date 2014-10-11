@@ -11,16 +11,15 @@ app = Flask(__name__)
 
 app.secret_key = os.environ.get('SECRET_KEY', 'secretkey')
 
-# Getting indentification variables to the JawUp API
-client_id = os.environ.get('CLIENT_ID')
-client_secret = os.environ.get('CLIENT_SECRET')
-
-# Getting some configuration variables defined in file.cfg
-app.config.from_pyfile("file.cfg")
-scope = app.config.get('SCOPE', 'extended_read')
-token_url = app.config.get('TOKEN_URL')
-authorization_base_url = app.config.get('AUTHORIZATION_BASE_URL')
-redirect_base_url = app.config.get('REDIRECT_BASE_URL')
+# Note that these env var needs to be declared in a .env file 
+# so that foreman can locally define them, 
+# or through the app setting in the heroku interface.
+client_id = os.environ.get('CLIENT_ID', 'client_id')
+client_secret = os.environ.get('CLIENT_SECRET', 'client_secret')
+scope = os.environ.get('SCOPE', 'extended_read')
+token_url = os.environ.get('TOKEN_URL', 'token_url')
+authorization_base_url = os.environ.get('AUTHORIZATION_BASE_URL', 'authorization_base_url')
+redirect_base_url = os.environ.get('REDIRECT_BASE_URL', 'redirect_base_url')
 
 @app.route("/")
 def main():
